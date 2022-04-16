@@ -10,7 +10,7 @@ public class DocumentCreator {
 
 	public static Document getDocumentRandom() {
 		try {
-			document = Jsoup.connect(MultipleVerseGenerator.checkUrl("https://vedabase.io/en/library/bg/" + VerseGenerator.getRandomChapterNumber() + "/" + VerseGenerator.getRandomVerseNumber())).get();
+			document = Jsoup.connect(MultipleVerseGenerator.checkUrl("https://vedabase.io/en/library/bg/" + RandomVerseGenerator.getRandomChapterNumber() + "/" + RandomVerseGenerator.getRandomVerseNumber())).get();
 		} catch (IOException e) {
 			getDocumentRandom();
 		}

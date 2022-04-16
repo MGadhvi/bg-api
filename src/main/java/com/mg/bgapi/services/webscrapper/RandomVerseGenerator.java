@@ -2,7 +2,7 @@ package com.mg.bgapi.services.webscrapper;
 
 import java.util.Random;
 
-public class VerseGenerator {
+public class RandomVerseGenerator {
 
 	public static String getRandomChapterNumber() {
 		Random random = new Random();
