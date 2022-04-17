@@ -1,5 +1,6 @@
 package com.mg.bgapi.services.webscrapper;
 
+import com.mg.bgapi.exceptions.VerseNotFoundException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -21,7 +22,7 @@ public class DocumentCreator {
 		try {
 			document = Jsoup.connect(MultipleVerseGenerator.checkUrl("https://vedabase.io/en/library/bg/" + chapter + "/" + verse)).get();
 		} catch (IOException e) {
-			System.out.println("Verse not found");
+			e.printStackTrace();
 		}
 		return document;
 	}
