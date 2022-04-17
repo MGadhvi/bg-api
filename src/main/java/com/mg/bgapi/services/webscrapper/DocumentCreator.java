@@ -1,6 +1,7 @@
 package com.mg.bgapi.services.webscrapper;
 
 import com.mg.bgapi.exceptions.VerseNotFoundException;
+import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -20,7 +21,8 @@ public class DocumentCreator {
 
 	public static Document getDocument(int chapter, int verse) {
 		try {
-			document = Jsoup.connect(MultipleVerseGenerator.checkUrl("https://vedabase.io/en/library/bg/" + chapter + "/" + verse)).get();
+			document = Jsoup.connect(MultipleVerseGenerator.checkUrl("https://vedabase.io/en/library/bg/" + chapter + "/" + verse)).ignoreHttpErrors(true)
+					.get();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

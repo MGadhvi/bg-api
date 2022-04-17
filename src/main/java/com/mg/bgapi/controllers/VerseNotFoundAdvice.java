@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class VerseNotFoundAdvice {
 
-	@ExceptionHandler
+	@ExceptionHandler(VerseNotFoundException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public String verseNotFoundHandler(VerseNotFoundException e) {
 		return e.getMessage();
