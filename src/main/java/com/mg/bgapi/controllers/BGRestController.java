@@ -20,9 +20,15 @@ public class BGRestController {
 
 		Document document = DocumentCreator.getDocument(chapter, verse);
 
-		return new VerseEntity(
+		VerseEntity verseEntity = new VerseEntity(
 				ElementFinder.getVerse(document),
 				ElementFinder.getTranslation(document));
+
+		if (verseEntity.getVerse() == null || verseEntity.getTranslation() == null) {
+			throw new VerseNotFoundException(chapter, verse);
+		} else {
+			return verseEntity;
+		}
 	}
 }
 
