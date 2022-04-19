@@ -15,7 +15,7 @@ public class VerseNotFoundAdvice {
 
 	@ExceptionHandler(VerseNotFoundException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
-	public ErrorMessage verseNotFoundHandler(VerseNotFoundException e) {
-		return new ErrorMessage(HttpStatus.NOT_FOUND.toString(),e.getMessage());
+	public ErrorMessage verseNotFoundHandler(VerseNotFoundException e, WebRequest request) {
+		return new ErrorMessage(request.getDescription(false), e.getMessage());
 	}
 }
